@@ -1,11 +1,22 @@
-.post{
+.post {
   border: 1px solid grey;
   padding: 20px;
 }
 
 .inline {
   display: inline-flex;
+  color: grey;
 }
+
 .inline p {
   margin-right: 10px;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.upvotes {
+  font-weight: 700;
+  color: #FF4500;
 }

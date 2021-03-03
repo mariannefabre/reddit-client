@@ -1,19 +1,19 @@
 import styles from "./Post.module.css";
 
-export function Post() {
+export function Post(props) {
   return (
     <div className={styles.post}>
       <div className={styles.inline}>
-        <p className={styles.bold}>Reddit Community</p>
-        <p>Username</p>
+        <p className={styles.bold}>{props.post.subreddit}</p>
+        <p>{props.post.author}</p>
       </div>
-      <h2>Post Title</h2>
-      <p>Content (img or text)</p>
+      <h2>{props.post.title}</h2>
+      {props.post.thumbnail ? <img src={props.post.thumbnail} alt='thumbnail'/> : <p>no picture</p>}
 
       <div className={styles.inline}>
-        <p className={styles.upvotes}>Number of upvotes</p>
-        <p className={styles.bold}>Number of comments</p>
-        <p>Date</p>
+        <p className={styles.upvotes}>{props.post.ups}</p>
+        <p className={styles.bold}>{props.post.nbComments}</p>
+        <p>{props.post.date}</p>
       </div>
     </div>
   );

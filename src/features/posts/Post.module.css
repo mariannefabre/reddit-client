@@ -1,6 +1,8 @@
 .post {
   border: 1px solid grey;
+  width: 80%;
   padding: 20px;
+  margin: 5px;
 }
 
 .inline {

@@ -1,12 +1,11 @@
 import {Post} from './Post';
 import styles from './PostsList.module.css';
 
-export function PostsList () {
+export function PostsList (props) {
 
   return (
-    <div className={styles.postsList}>
-    <Post></Post>
-    <Post></Post>
-    </div>
+    <ul className={styles.postsList}>
+      {props.posts.map((post) => <Post key={post.id} post={post}/>)}
+    </ul>
   )
 }

@@ -1,7 +1,17 @@
-.searchBar {
+
+.searchInput{
   border-radius: 0px;
   border: 1px solid rgb(229, 229, 229);
   width: 45vw;
   height: 35px;
-  text-indent: 10px;
+  text-indent: 35px;
+  margin: auto 0;
+}
+
+.icon {
+  margin: auto;
+  position: absolute;
+  height: 39px;
+  margin-left: 12px;
+  color: grey;
 }

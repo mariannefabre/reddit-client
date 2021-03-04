@@ -5,6 +5,9 @@ import { PostsList } from "./features/posts/PostsList";
 import { SideBar } from "./features/sideBar/SideBar";
 import { Reddit } from "./util/Reddit";
 import "./App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+
 
 const App = () => {
   const [posts, setPosts] = useState(null);
@@ -15,6 +18,7 @@ const App = () => {
       const results = await Reddit.getPopularPosts();
       setPosts(results);
       setIsLoading(false);
+      console.log(results);
     }
     fetchData();
   }, []);
@@ -28,7 +32,7 @@ const App = () => {
       <section className="container">
         <SideBar />
         {isLoading ? (
-          <h2 className="loading">Loading</h2>
+          <FontAwesomeIcon className="loading" icon={faSpinner} spin />
         ) : (
           <PostsList posts={posts} />
         )}

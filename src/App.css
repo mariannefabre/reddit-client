@@ -3,27 +3,19 @@ html {
 }
 .App {
    height: 100vh;
-
-  /*   text-align: center; */
   }
 
   .App-logo {
-    height: 8vmin;
+    height: 50px;
     pointer-events: none;
     min-width: 16rem;
-    text-align: left;
   }
   
   .App-header {
     display: flex;
     align-items: center;
-    height: 7vh;
-    background-color: rgb(239, 234, 228);
-    
-  /*   align-items: center;
-    justify-content: center; 
-    font-size: calc(10px + 2vmin);*/
-    
+    height: 70px;
+    background-color: #fff;
   }
   
   .container{

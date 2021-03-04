@@ -12,6 +12,7 @@ export const Reddit = {
         const posts = jsonResponse.data.children.map((post) => {
           return {
             id: post.data.id,
+            url: post.data.url,
             author: post.data.author,
             title: post.data.title,
             date: post.data.created,

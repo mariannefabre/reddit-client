@@ -5,7 +5,7 @@
   margin-top: 0;
 }
 
-.post {
+.post{
   border: 1px solid rgb(229, 229, 229);
   width: 80%;
   padding: 20px;
@@ -14,7 +14,7 @@
   transition: all 0.2s ease-in;
   
 }
-.post:hover {
+.post:hover{
   position: relative;
   left: 3px;
   bottom: 3px;
@@ -22,21 +22,24 @@
 
 }
 
+.thumbnail{
+  display: block;
+}
 
-.inline {
+.inline{
   display: inline-flex;
   color: grey;
 }
 
-.inline p {
+.inline p{
   margin-right: 10px;
 }
 
-.bold {
+.bold{
   font-weight: 700;
 }
 
-.upvotes {
+.upvotes{
   font-weight: 700;
   color: #FF4500;
 }

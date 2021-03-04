@@ -1,6 +1,6 @@
 import styles from "./Post.module.css";
 
-export function Post(props) {
+export const Post = (props) => {
   return (
     <div className={styles.post}>
       <div className={styles.inline}>

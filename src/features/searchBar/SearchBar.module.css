@@ -1,7 +1,7 @@
 .searchBar {
-  border-radius: 5px;
-  border: 1px solid grey;
+  border-radius: 0px;
+  border: 1px solid rgb(229, 229, 229);
   width: 45vw;
-  height: 30px;
+  height: 35px;
+  text-indent: 10px;
 }
-

@@ -1,7 +1,7 @@
 
 export const Reddit = {
 
-  getPopularPageData () {
+  getPopularPosts () {
     const urlToFetch = "https://www.reddit.com/r/popular.json";
 
     return fetch(urlToFetch).then(response => {

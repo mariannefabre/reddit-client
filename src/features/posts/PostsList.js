@@ -1,11 +1,12 @@
-import {Post} from './Post';
-import styles from './PostsList.module.css';
+import { Post } from "./Post";
+import styles from "./Post.module.css";
 
-export function PostsList (props) {
-
+export const PostsList = (props) => {
   return (
     <ul className={styles.postsList}>
-      {props.posts.map((post) => <Post key={post.id} post={post}/>)}
+      {props.posts.map((post) => (
+        <Post key={post.id} post={post} />
+      ))}
     </ul>
-  )
-}
+  );
+};

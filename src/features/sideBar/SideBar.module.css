@@ -1,0 +1,44 @@
+.sideBar {
+  border-radius: 0px;
+  border: 1px solid rgb(229, 229, 229);
+  background-color: rgb(255, 255, 255);
+  min-width: 16rem;
+  height: fit-content;
+  margin: 5px;
+  font-family: "Work Sans", sans-serif;
+
+}
+
+.navLinks{
+  list-style: none;
+  padding-left: unset;
+
+}
+
+.link {
+  padding: 15px;
+
+}
+/* .link::selection{
+  background-color: yellow;
+  color: black;
+} */
+
+.linkButton{
+  font-size: 15px;
+  color: rgb(140, 140, 140);
+  font-weight: 700;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.linkButton:hover, .linkButton:focus {
+  outline: none;
+  text-decoration: none;
+}
+
+.linkButton:hover{
+  color: black;
+  font-weight: 700;
+}

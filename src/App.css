@@ -1,17 +1,24 @@
- .App {
+html {
+  background-color: rgb(246, 243, 239);
+}
+.App {
    height: 100vh;
+
   /*   text-align: center; */
   }
 
   .App-logo {
     height: 8vmin;
     pointer-events: none;
+    min-width: 16rem;
+    text-align: left;
   }
   
   .App-header {
     display: flex;
     align-items: center;
     height: 7vh;
+    background-color: rgb(239, 234, 228);
     
   /*   align-items: center;
     justify-content: center; 
@@ -21,8 +28,16 @@
   
   .container{
     display: flex;
+    padding: 4rem 1.25rem;
+    max-width: 80rem;
+    margin: 0 auto;
   }
   
+  .loading{
+    width: 100%;
+    text-align: center;
+
+  }
   /* 
   
   @media (prefers-reduced-motion: no-preference) {

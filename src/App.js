@@ -21,7 +21,7 @@ const App = () => {
       );
 
       setPosts(results);
-/*       setIsLoading(false); */
+      setIsLoading(false);
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -47,4 +47,6 @@ const App = () => {
 
 export default App;
 
-{/* <FontAwesomeIcon className="loading" icon={faSpinner} spin /> */}
+{
+  /* <FontAwesomeIcon className="loading" icon={faSpinner} spin /> */
+}

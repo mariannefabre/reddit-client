@@ -4,6 +4,7 @@ import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 
 
 export const Post = (props) => {
+  
   const handleClick = () => {
     window.location = props.post.url;
   };

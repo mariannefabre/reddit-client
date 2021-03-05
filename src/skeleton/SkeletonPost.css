@@ -1,0 +1,31 @@
+/* Basic style */
+
+.postSkeleton {
+  border: 1px solid rgb(229, 229, 229);
+  width: 80%;
+  height: 230px;
+  padding: 5px 20px;
+  margin: 5px;
+  background-color:rgb(255, 255, 255);
+}
+
+.skeleton {
+  background-color: #ddd;
+  margin: 15px;
+}
+
+.skeleton.info {
+  width: 40%;
+  height: 12px;
+}
+
+.skeleton.title {
+  width: 60%;
+  height: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+.skeleton.thumbnail{
+  width: 30%;
+  height: 50%;
+}

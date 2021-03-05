@@ -21,8 +21,7 @@
   color: black;
 } */
 
-.linkButton,
-.selectedLinkButton {
+.linkButton {
   font-size: 15px;
   color: rgb(140, 140, 140);
   font-weight: 700;
@@ -30,13 +29,9 @@
   border: none;
   cursor: pointer;
 }
-.selectedLinkButton {
-  color: #ff4500;
-}
+
 .linkButton:hover,
-.linkButton:focus,
-.selectedLinkButton:hover,
-.selectedLinkButton:focus {
+.linkButton:focus {
   outline: none;
   text-decoration: none;
 }
@@ -45,7 +40,12 @@
   color: black;
   font-weight: 700;
 }
-
+.selectedLinkButton {
+  color: #ff4500;
+}
+.selectedLinkButton:hover {
+  color: #ff4500;
+}
 .icon {
   font-size: 1.2rem;
 }

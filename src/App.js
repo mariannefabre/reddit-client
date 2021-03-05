@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import logo from "./Reddit_logo.svg";
-import { SearchBar } from "./features/searchBar/SearchBar";
-import { PostsList } from "./features/posts/PostsList";
-import { SideBar } from "./features/sideBar/SideBar";
+import { SearchBar } from "./components/searchBar/SearchBar";
+import { PostsList } from "./components/posts/PostsList";
+import { SideBar } from "./components/sideBar/SideBar";
 import { Reddit } from "./util/Reddit";
 import "./App.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-
+/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons"; */
 
 const App = () => {
   const [posts, setPosts] = useState(null);
@@ -22,7 +21,7 @@ const App = () => {
       );
 
       setPosts(results);
-      setIsLoading(false);
+/*       setIsLoading(false); */
     }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -40,14 +39,12 @@ const App = () => {
       </header>
       <section className="container">
         <SideBar currentCategoryId={currentCategoryId} onClick={handleClick} />
-        {isLoading ? (
-          <FontAwesomeIcon className="loading" icon={faSpinner} spin />
-        ) : (
-          <PostsList posts={posts} />
-        )}
+        <PostsList isLoading={isLoading} posts={posts} />
       </section>
     </div>
   );
 };
 
 export default App;
+
+{/* <FontAwesomeIcon className="loading" icon={faSpinner} spin /> */}

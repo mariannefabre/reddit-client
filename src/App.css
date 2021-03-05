@@ -3,15 +3,16 @@ html {
 }
 .App {
    height: 100vh;
+   
   }
 
   .App-logo {
     height: 50px;
     pointer-events: none;
-    min-width: 16rem;
   }
   
   .App-header {
+    padding: 0 10px;
     display: flex;
     align-items: center;
     height: 70px;

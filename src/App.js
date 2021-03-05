@@ -5,23 +5,33 @@ import { PostsList } from "./features/posts/PostsList";
 import { SideBar } from "./features/sideBar/SideBar";
 import { Reddit } from "./util/Reddit";
 import "./App.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 
 const App = () => {
   const [posts, setPosts] = useState(null);
+  const [categoryId, setCategoryId] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
-      const results = await Reddit.getPopularPosts();
+      setIsLoading(true);
+      const results = await Reddit.getPosts(
+        Reddit.Categories[categoryId].urlToFetch
+      );
+
       setPosts(results);
       setIsLoading(false);
-      console.log(results);
     }
     fetchData();
-  }, []);
+    console.log(categoryId);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [categoryId]);
+
+  const handleClick = (id) => {
+    setCategoryId(id);
+  };
 
   return (
     <div className="App">
@@ -30,7 +40,7 @@ const App = () => {
         <SearchBar />
       </header>
       <section className="container">
-        <SideBar />
+        <SideBar onClick={handleClick} />
         {isLoading ? (
           <FontAwesomeIcon className="loading" icon={faSpinner} spin />
         ) : (

@@ -1,27 +1,25 @@
 import styles from "./SideBar.module.css";
+/* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFire, faChartLine } from "@fortawesome/free-solid-svg-icons"; */
+import { Reddit } from "../../util/Reddit";
 
-export const SideBar = () => {
-  const items = [
-    { id: 1, link: "Title 1" },
-    { id: 2, link: "Title 2" },
-  ];
+export const SideBar = (props) => {
 
-  const handleNavigation = () => {
-
+  const handleClick = (id) => {
+     props.onClick(id); 
   }
 
   return (
     <nav className={styles.sideBar}>
       <ul className={styles.navLinks}>
-        {items ? (
-          items.map((item) => (
-            <li className={styles.link} key={item.id}>
-              <button className={styles.linkButton} onClick={handleNavigation}>{items[0].link}</button>
-            </li>
-          ))
-        ) : (
-          <p>Loading..</p>
-        )}
+        {Reddit.Categories.map((category) => (
+          <li className={styles.link} key={category.id}>
+            {/*               <FontAwesomeIcon className={styles.icon} icon={category.icon} /> */}
+            <button className={styles.linkButton} onClick={()=> handleClick(category.id)}>
+              {category.name}
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   );

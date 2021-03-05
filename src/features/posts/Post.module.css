@@ -8,7 +8,7 @@
 .post{
   border: 1px solid rgb(229, 229, 229);
   width: 80%;
-  padding: 20px;
+  padding: 0 20px;
   margin: 5px;
   background-color:rgb(255, 255, 255);
   transition: all 0.2s ease-in;
@@ -26,9 +26,16 @@
   display: block;
 }
 
-.inline{
+.title{
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.inline {
   display: inline-flex;
   color: grey;
+  font-size: 0.9rem;
 }
 
 .inline p{

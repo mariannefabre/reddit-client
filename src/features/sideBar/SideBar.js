@@ -15,7 +15,7 @@ export const SideBar = (props) => {
         {Reddit.Categories.map((category) => (
           <li className={styles.link} key={category.id}>
             {/*               <FontAwesomeIcon className={styles.icon} icon={category.icon} /> */}
-            <button className={styles.linkButton} onClick={()=> handleClick(category.id)}>
+            <button className={category.id === props.currentCategoryId ? styles.selectedLinkButton : styles.linkButton} onClick={()=> handleClick(category.id)}>
               {category.name}
             </button>
           </li>

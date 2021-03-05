@@ -11,26 +11,25 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 
 const App = () => {
   const [posts, setPosts] = useState(null);
-  const [categoryId, setCategoryId] = useState(0);
+  const [currentCategoryId, setCurrentCategoryId] = useState(0);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
       const results = await Reddit.getPosts(
-        Reddit.Categories[categoryId].urlToFetch
+        Reddit.Categories[currentCategoryId].urlToFetch
       );
 
       setPosts(results);
       setIsLoading(false);
     }
     fetchData();
-    console.log(categoryId);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryId]);
+  }, [currentCategoryId]);
 
   const handleClick = (id) => {
-    setCategoryId(id);
+    setCurrentCategoryId(id);
   };
 
   return (
@@ -40,7 +39,7 @@ const App = () => {
         <SearchBar />
       </header>
       <section className="container">
-        <SideBar onClick={handleClick} />
+        <SideBar currentCategoryId={currentCategoryId} onClick={handleClick} />
         {isLoading ? (
           <FontAwesomeIcon className="loading" icon={faSpinner} spin />
         ) : (

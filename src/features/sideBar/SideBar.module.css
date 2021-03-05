@@ -6,25 +6,23 @@
   height: fit-content;
   margin: 5px;
   font-family: "Work Sans", sans-serif;
-
 }
 
-.navLinks{
+.navLinks {
   list-style: none;
   padding-left: unset;
-
 }
 
 .link {
   padding: 15px;
-
 }
 /* .link::selection{
   background-color: yellow;
   color: black;
 } */
 
-.linkButton{
+.linkButton,
+.selectedLinkButton {
   font-size: 15px;
   color: rgb(140, 140, 140);
   font-weight: 700;
@@ -32,17 +30,20 @@
   border: none;
   cursor: pointer;
 }
-
-.linkButton:hover, .linkButton:focus {
+.selectedLinkButton {
+  color: #ff4500;
+}
+.linkButton:hover,
+.linkButton:focus {
   outline: none;
   text-decoration: none;
 }
 
-.linkButton:hover{
+.linkButton:hover {
   color: black;
   font-weight: 700;
 }
 
-.icon{
+.icon {
   font-size: 1.2rem;
 }

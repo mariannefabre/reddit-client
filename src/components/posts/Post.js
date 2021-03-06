@@ -8,10 +8,18 @@ export const Post = (props) => {
   const handleClick = () => {
     window.location = props.post.url;
   };
-  const getHoursDiff = () => {
+  const getTimeDiff = () => {
     const timeDelta = Math.abs(Date.now() - props.post.utcCreationDate * 1000);
-    const hoursDiff = Math.floor(timeDelta / (1000 * 60 * 60));
-    return hoursDiff;
+    if(Math.floor(timeDelta / (1000 * 60 * 60)) > 1){
+      return `${Math.floor(timeDelta / (1000 * 60 * 60))} hours ago`;
+    } else if(Math.floor(timeDelta / (1000 * 60 * 60))===1){
+      return `${Math.floor(timeDelta / (1000 * 60 * 60))} hour ago`;
+    }else if (Math.floor(timeDelta / (1000 * 60 * 60 * 60)) > 1){
+      return `${Math.floor(timeDelta / (1000 * 60 * 60 * 60))} minutes ago`;
+    }else {
+      return `${Math.floor(timeDelta / (1000 * 60 * 60 * 60 * 60))} seconds ago`;
+    }
+    
   };
 
   return (
@@ -36,7 +44,7 @@ export const Post = (props) => {
         <p className={styles.upvotes}>{props.post.ups} ups</p>
         <FontAwesomeIcon style={{ margin: "auto" }} icon={faCommentAlt} />
         <p className={styles.bold}>{props.post.nbComments} comments</p>
-        <p>{getHoursDiff()} hours ago</p>
+        <p>{getTimeDiff()}</p>
       </div>
     </div>
   );

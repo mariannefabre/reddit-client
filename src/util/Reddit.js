@@ -3,7 +3,7 @@ export const Reddit = {
     {
       id: 0,
       name: "Popular",
-      urlToFetch: "https://www.reddit.com/r/popular.json",
+      urlToFetch: "https://www.reddit.com/best.json",
       icon: "faFire",
     },
     {
@@ -22,6 +22,12 @@ export const Reddit = {
       id: 3,
       name: "Rising",
       urlToFetch: "https://www.reddit.com/r/popular/rising.json",
+      icon: "faChartLine",
+    },
+    {
+      id: 4,
+      name: "All",
+      urlToFetch: "https://www.reddit.com/r/all.json",
       icon: "faChartLine",
     },
   ],

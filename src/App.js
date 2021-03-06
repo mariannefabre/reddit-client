@@ -11,18 +11,18 @@ import { faSpinner } from "@fortawesome/free-solid-svg-icons"; */
 const App = () => {
   const [posts, setPosts] = useState(null);
   const [currentCategoryId, setCurrentCategoryId] = useState(0);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isContentLoading, setIsContentLoading] = useState(true);
+
+  async function fetchData() {
+    setIsContentLoading(true);
+    const results = await Reddit.getPosts(
+      Reddit.Categories[currentCategoryId].urlToFetch
+    );
+    setPosts(results);
+    setIsContentLoading(false);
+  }
 
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      const results = await Reddit.getPosts(
-        Reddit.Categories[currentCategoryId].urlToFetch
-      );
-
-      setPosts(results);
-      setIsLoading(false);
-    }
     fetchData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentCategoryId]);
@@ -31,22 +31,22 @@ const App = () => {
     setCurrentCategoryId(id);
   };
 
+  async function handleChange(searchTerm){
+    
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="Reddit logo" />
-        <SearchBar />
+        <SearchBar onChange={handleChange}/>
       </header>
       <section className="container">
         <SideBar currentCategoryId={currentCategoryId} onClick={handleClick} />
-        <PostsList isLoading={isLoading} posts={posts} />
+        <PostsList isLoading={isContentLoading} posts={posts} />
       </section>
     </div>
   );
 };
 
 export default App;
-
-{
-  /* <FontAwesomeIcon className="loading" icon={faSpinner} spin /> */
-}

@@ -2,7 +2,7 @@ import React, {useState } from "react";
 import logo from "./Reddit_logo.svg";
 import { SearchBar } from "./components/searchBar/SearchBar";
 import { SideBar } from "./components/sideBar/SideBar";
-import {ScrollComponent} from './components/ScrollComponent';
+import {ScrollComponent} from './components/ScrollComponent/ScrollComponent';
 import "./App.css";
 /* import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons"; */

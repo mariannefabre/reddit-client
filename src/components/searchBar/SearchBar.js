@@ -16,26 +16,28 @@ export const SearchBar = () => {
     setData(fetchedData);
   }
 
-  /* useEffect(() => {fetchData()}, []); */
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  useEffect(()=> {
-    if(query !== "" && data){
-      const currentResults = data.filter(post => {
-        if(post.title.includes(query)){
+  useEffect(() => {
+    if (query !== "" && data) {
+      const currentResults = data.filter((post) => {
+        if (post.title.includes(query)) {
           return post;
-        }else{
+        } else {
           // eslint-disable-next-line array-callback-return
           return;
         }
       });
-      setResults(currentResults)
-      }
+      setResults(currentResults);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [query]);
+  }, [query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-/*     if (query && query.length > 1 && query.length % 2 === 0) {
+    /*     if (query && query.length > 1 && query.length % 2 === 0) {
     } */
   };
 

@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Reddit } from "../util/Reddit";
-import { PostsList } from "./posts/PostsList";
+import { Reddit } from "../../util/Reddit";
+import { PostsList } from "../posts/PostsList";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import styles from "./ScrollComponent.module.css";
 
 export const ScrollComponent = (props) => {
   const [posts, setPosts] = useState([]);
@@ -37,7 +40,7 @@ export const ScrollComponent = (props) => {
   }
 
   useEffect(() => {
-    if (isBottom) {
+    if (isBottom && posts.length > 1) {
       const newUrl =
         Reddit.Categories[props.currentCategoryId].urlToFetch + "?" + nextPage;
       fetchNewData(newUrl);
@@ -58,18 +61,11 @@ export const ScrollComponent = (props) => {
   }, [props.currentCategoryId]);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       <PostsList isLoading={isLoading} posts={posts} />
       <div ref={(node) => (loadingRef = node)}>
-<span>Loading...</span>
+        <FontAwesomeIcon className={styles.loading} icon={faSpinner} spin />
       </div>
     </div>
   );
 };
-
-/* this.listing = {
-  /*       previousList: jsonResponse.data.before, 
-  nextList: jsonResponse.data.after,
-  posts: [...posts, newPosts]
-};
-return this.listing; */

@@ -5,25 +5,23 @@ import { useState, useEffect } from "react";
 import { Suggestions } from "./Suggestions";
 import { Reddit } from "../../util/Reddit";
 
-export const SearchBar = (props) => {
+export const SearchBar = () => {
   const [query, setQuery] = useState("");
   const [data, setData] = useState();
   const [results, setResults] = useState([]);
 
   async function fetchData() {
     const urlToFetch = "https://www.reddit.com/r/all.json";
-    const fetchedData = await Reddit.getPosts(urlToFetch);
+    const fetchedData = await Reddit.getPostsList(urlToFetch);
     setData(fetchedData);
-    console.log(fetchedData);
   }
 
-  useEffect(() => {fetchData()}, []);
+  /* useEffect(() => {fetchData()}, []); */
 
   useEffect(()=> {
     if(query !== "" && data){
       const currentResults = data.filter(post => {
         if(post.title.includes(query)){
-          console.log(post);
           return post;
         }else{
           // eslint-disable-next-line array-callback-return
@@ -38,7 +36,6 @@ export const SearchBar = (props) => {
   const handleChange = (e) => {
     setQuery(e.target.value);
 /*     if (query && query.length > 1 && query.length % 2 === 0) {
-
     } */
   };
 

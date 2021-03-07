@@ -6,26 +6,32 @@
   height: 230px;
   padding: 5px 20px;
   margin: 5px;
-  background-color:rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 .skeleton {
-  background-color: #ddd;
+  background-color: rgb(226, 224, 224);
   margin: 15px;
 }
 
 .skeleton.info {
-  width: 40%;
+  width: 12%;
   height: 12px;
+  margin-right: 2px;
+
 }
 
 .skeleton.title {
   width: 60%;
-  height: 20px;
-  margin-bottom: 15px;
-  margin-top: 15px;
+  height: 18px;
+  margin-top: 0px;
 }
-.skeleton.thumbnail{
+.skeleton.thumbnail {
   width: 30%;
   height: 50%;
+  margin-bottom: 0;
+}
+.inline{
+  width: 100%;
+  display: inline-flex;
 }

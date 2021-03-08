@@ -12,19 +12,22 @@ html {
   }
   
   .App-header {
+    position: fixed; 
+    width: 100%;
     padding: 0 10px;
     display: flex;
     align-items: center;
-    height: 70px;
-    background-color: #fff;
+    height: 60px;
+    background-color: rgb(13, 11, 43);
     box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
+    z-index: 3;
   }
-  
+
   @media only screen and (min-width: 930px){
     .container{
       display: flex;
-      padding: 4rem 1.25rem;
-      max-width: 80rem;
+      padding: 7rem 1.25rem;
+      max-width: 70rem;
       margin: 0 auto;
     }
   }

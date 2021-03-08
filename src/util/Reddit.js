@@ -1,4 +1,6 @@
-import { faFire, faChartLine } from "@fortawesome/free-solid-svg-icons";
+import {AiOutlineRise, AiFillFire} from "react-icons/ai";
+/* import { faFire, faChartLine } from "@fortawesome/free-solid-svg-icons"; */
+import "./Reddit.css";
 
 export const Reddit = {
   
@@ -6,32 +8,37 @@ export const Reddit = {
     {
       id: 0,
       name: "Popular",
+      path: '/popular',
       urlToFetch: "https://www.reddit.com/best.json",
-      icon: faFire,
+      icon: <AiFillFire className="icon"/>
     },
     {
       id: 1,
       name: "Hot",
+      path: '/hot',
       urlToFetch: "https://www.reddit.com/r/popular/hot.json",
-      icon: faFire,
+      icon: <AiFillFire className="icon"/>,
     },
     {
       id: 2,
       name: "New",
+      path: '/new',
       urlToFetch: "https://www.reddit.com/r/popular/new.json",
-      icon: faFire,
+      icon: <AiFillFire className="icon"/>,
     },
     {
       id: 3,
       name: "Rising",
+      path: '/rising',
       urlToFetch: "https://www.reddit.com/r/popular/rising.json",
-      icon: faChartLine,
+      icon: <AiOutlineRise className="icon"/>,
     },
     {
       id: 4,
       name: "All",
+      path: '/all',
       urlToFetch: "https://www.reddit.com/r/all.json",
-      icon: faChartLine,
+      icon: <AiFillFire className="icon"/>,
     },
   ],
 

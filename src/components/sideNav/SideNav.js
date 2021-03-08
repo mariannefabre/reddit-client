@@ -1,8 +1,8 @@
-import styles from "./SideBar.module.css";
+import styles from "./SideNav.module.css";
 import { Reddit } from "../../util/Reddit";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export const SideBar = (props) => {
+export const SideNav = (props) => {
   const handleClick = (id) => {
     props.onClick(id);
   };
@@ -13,12 +13,6 @@ export const SideBar = (props) => {
       : `${styles.link}`;
   };
 
-  /*   const getIconClasses = (id) => {
-    return id === props.currentCategoryId
-      ? `${styles.icon} ${styles.selectedLinkIcon}`
-      : `${styles.icon}`;
-  }; */
-
   return (
     <nav className={styles.sideBar}>
       <ul className={styles.navLinks}>
@@ -28,7 +22,7 @@ export const SideBar = (props) => {
             key={category.id}
             onClick={() => handleClick(category.id)}
           >
-            <FontAwesomeIcon className={styles.icon} icon={category.icon} />
+            {category.icon}
             {category.name}
           </li>
         ))}

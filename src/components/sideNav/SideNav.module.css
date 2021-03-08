@@ -1,10 +1,14 @@
-.navLinks {
-  list-style: none;
-  padding-left: unset;
+.sideBar{
+  display: none;
 }
 
 @media only screen and (min-width: 930px){
+  .navLinks {
+    list-style: none;
+    padding-left: unset;
+  }
   .sideBar {
+    display: unset;
     border-radius: 0px;
     border: 1px solid rgb(229, 229, 229);
     background-color: rgb(255, 255, 255);
@@ -13,6 +17,7 @@
     margin: 5px;
     font-family: "Work Sans", sans-serif;
     box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
+    border-radius: 4px;
   }
 
   .link {
@@ -31,10 +36,6 @@
   }
   .selectedLink:hover {
     color: #ff4500;
-  }
-  .icon{
-    font-size: 1.2rem;
-    margin: 0 12px;
   }
 }
 

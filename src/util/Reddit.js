@@ -1,34 +1,37 @@
+import { faFire, faChartLine } from "@fortawesome/free-solid-svg-icons";
+
 export const Reddit = {
+  
   Categories: [
     {
       id: 0,
       name: "Popular",
       urlToFetch: "https://www.reddit.com/best.json",
-      icon: "faFire",
+      icon: faFire,
     },
     {
       id: 1,
       name: "Hot",
       urlToFetch: "https://www.reddit.com/r/popular/hot.json",
-      icon: "faFire",
+      icon: faFire,
     },
     {
       id: 2,
       name: "New",
       urlToFetch: "https://www.reddit.com/r/popular/new.json",
-      icon: "faFire",
+      icon: faFire,
     },
     {
       id: 3,
       name: "Rising",
       urlToFetch: "https://www.reddit.com/r/popular/rising.json",
-      icon: "faChartLine",
+      icon: faChartLine,
     },
     {
       id: 4,
       name: "All",
       urlToFetch: "https://www.reddit.com/r/all.json",
-      icon: "faChartLine",
+      icon: faChartLine,
     },
   ],
 

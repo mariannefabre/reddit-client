@@ -1,24 +1,26 @@
-/* Basic style */
-
 .postSkeleton {
   border: 1px solid rgb(229, 229, 229);
   width: 80%;
   height: 230px;
-  padding: 5px 20px;
-  margin: 5px;
-  background-color: rgb(255, 255, 255);
+  padding: 0px 20px;
+  margin: 5px auto;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
+  overflow: hidden;
+  position: relative;
 }
 
 .skeleton {
-  background-color: rgb(226, 224, 224);
-  margin: 15px;
+  background-color: rgba(226, 224, 224, 0.774);
+  margin: 15px 0px;
 }
 
 .skeleton.info {
   width: 12%;
+  min-width: 70px;
   height: 12px;
-  margin-right: 2px;
-
+  margin-right: 8px;
 }
 
 .skeleton.title {
@@ -26,8 +28,9 @@
   height: 18px;
   margin-top: 0px;
 }
-.skeleton.thumbnail {
+.skeleton.media {
   width: 30%;
+  min-width: 150px;
   height: 50%;
   margin-bottom: 0;
 }

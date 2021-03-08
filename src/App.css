@@ -20,34 +20,17 @@ html {
     box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
   }
   
-  .container{
-    display: flex;
-    padding: 4rem 1.25rem;
-    max-width: 80rem;
-    margin: 0 auto;
+  @media only screen and (min-width: 930px){
+    .container{
+      display: flex;
+      padding: 4rem 1.25rem;
+      max-width: 80rem;
+      margin: 0 auto;
+    }
   }
-  
+
   .loading{
     width: 100%;
     text-align: center;
 
   }
-  /* 
-  
-  @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-      animation: App-logo-float infinite 3s ease-in-out;
-    }
-  }
-  @keyframes App-logo-float {
-    0% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(10px)
-    }
-    100% {
-      transform: translateY(0px)
-    }
-  }
-   */

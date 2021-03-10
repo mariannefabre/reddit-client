@@ -25,9 +25,12 @@
     cursor: pointer;
     color: rgb(140, 140, 140);
     transition: all 0.1s ease-in;
-    font-size: 15px;
     font-weight: 900;
+    display: flex;
+    align-items: center;
   }
+
+
   .link:hover {
     color: rgb(73, 73, 73);
   }

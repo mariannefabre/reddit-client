@@ -1,46 +1,34 @@
-import React, {useState } from "react";
+import React from "react";
 import logo from "./Reddit_logo.svg";
 import { SearchBar } from "./components/searchBar/SearchBar";
-import { SideNav } from "./components/sideNav/SideNav";
-import {PostsList} from './components/posts/PostsList';
-import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import Menu from './components/menu/Menu';
-
+import Menu from "./components/menu/Menu";
+import Home from "./pages/Home";
 
 const App = () => {
-  const [currentCategoryId, setCurrentCategoryId] = useState(0);
-
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
-
-  const handleClick = (id) => {
-    setCurrentCategoryId(id);
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="Reddit logo" />
-        <SearchBar />
-        <Router>
+    <Router>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="Reddit logo" />
+          <SearchBar />
           <Menu />
-          <Switch>
-            <Route path='/'/>
-          </Switch>
-        </Router>
-        {/* <SideBar currentCategoryId={currentCategoryId} onClick={handleClick}>
+          {/* <SideBar currentCategoryId={currentCategoryId} onClick={handleClick}>
           <Link to="#" className="menu-bars">
             <FaBars/>
           </Link>
         </SideBar> */}
-      </header>
-      <section className="container">
-         <SideNav currentCategoryId={currentCategoryId} onClick={handleClick} /> 
-        <PostsList currentCategoryId={currentCategoryId} />
-      </section>
-    </div>
+        </header>
+        <Switch>
+          <Route path="/" component={Home} />
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

@@ -13,8 +13,10 @@ export const PostsList = (props) => {
   const [nextPage, setNextPage] = useState("");
   let loadingRef;
 
-  async function fetchData(url, isNewCategory) {
-    const postsListing = await Reddit.getPostsList(url);
+
+  async function fetchData(isNewCategory) {
+    const postsListing = await Reddit.getPostsList(props.currentPath, nextPage);
+    console.log(isNewCategory);
     if (isNewCategory) {
       setPosts(postsListing.posts);
       setIsLoading(false);
@@ -33,19 +35,6 @@ export const PostsList = (props) => {
   }
 
   useEffect(() => {
-    if (isBottom) {
-      const url =
-        Reddit.Categories[props.currentCategoryId].urlToFetch + "?" + nextPage;
-      fetchData(url, false);
-    }
-  }, [isBottom]);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetchData(Reddit.Categories[props.currentCategoryId].urlToFetch, true);
-  }, [props.currentCategoryId]);
-
-  useEffect(() => {
     const options = {
       root: null,
       rootMargin: "0px",
@@ -54,6 +43,18 @@ export const PostsList = (props) => {
     const observer = new IntersectionObserver(handleObserver, options);
     observer.observe(loadingRef);
   }, []);
+
+  useEffect(() => {
+    if (isBottom) fetchData(false);
+  }, [isBottom]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    setIsLoading(true);
+    fetchData(true);
+  }, [props.currentPath]);
+
+  
 
   return (
     <div className={styles.container}>

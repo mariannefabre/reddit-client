@@ -1,48 +1,49 @@
-import {AiOutlineRise, AiFillFire} from "react-icons/ai";
-/* import { faFire, faChartLine } from "@fortawesome/free-solid-svg-icons"; */
+import { AiOutlineRise, AiFillFire } from "react-icons/ai";
+import { IoIosRocket } from "react-icons/io";
+import { TiStarburst } from "react-icons/ti";
+import { IoStatsChart } from "react-icons/io5";
 import "./Reddit.css";
 
-export const Reddit = {
-  
-  Categories: [
-    {
-      id: 0,
-      name: "Popular",
-      path: '/popular',
-      urlToFetch: "https://www.reddit.com/best.json",
-      icon: <AiFillFire className="icon"/>
-    },
-    {
-      id: 1,
-      name: "Hot",
-      path: '/hot',
-      urlToFetch: "https://www.reddit.com/r/popular/hot.json",
-      icon: <AiFillFire className="icon"/>,
-    },
-    {
-      id: 2,
-      name: "New",
-      path: '/new',
-      urlToFetch: "https://www.reddit.com/r/popular/new.json",
-      icon: <AiFillFire className="icon"/>,
-    },
-    {
-      id: 3,
-      name: "Rising",
-      path: '/rising',
-      urlToFetch: "https://www.reddit.com/r/popular/rising.json",
-      icon: <AiOutlineRise className="icon"/>,
-    },
-    {
-      id: 4,
-      name: "All",
-      path: '/all',
-      urlToFetch: "https://www.reddit.com/r/all.json",
-      icon: <AiFillFire className="icon"/>,
-    },
-  ],
+export const categories = [
+  {
+    id: 0,
+    name: "Popular",
+    path: "/popular",
+    urlToFetch: "https://www.reddit.com/best.json",
+    icon: <IoIosRocket className="icon" />,
+  },
+  {
+    id: 1,
+    name: "Hot",
+    path: "/hot",
+    urlToFetch: "https://www.reddit.com/r/popular/hot.json",
+    icon: <AiFillFire className="icon" />,
+  },
+  {
+    id: 2,
+    name: "New",
+    path: "/new",
+    urlToFetch: "https://www.reddit.com/r/popular/new.json",
+    icon: <TiStarburst className="icon" />,
+  },
+  {
+    id: 3,
+    name: "Rising",
+    path: "/rising",
+    urlToFetch: "https://www.reddit.com/r/popular/rising.json",
+    icon: <AiOutlineRise className="icon" />,
+  },
+  {
+    id: 4,
+    name: "All",
+    path: "/all",
+    urlToFetch: "https://www.reddit.com/r/all.json",
+    icon: <IoStatsChart className="icon" />,
+  },
+];
 
-  setListProperties(jsonResponse){
+export const Reddit = {
+  setListProperties(jsonResponse) {
     const posts = jsonResponse.data.children.map((post) => ({
       id: post.data.id,
       url: post.data.url,
@@ -64,8 +65,18 @@ export const Reddit = {
     return list;
   },
 
-  
-  getPostsList(url) {
+  getPostsList(path, nextPage) {
+    if (path === "/") path = "/popular";
+    let url;
+    categories.forEach((category) => {
+      if (path === category.path) {
+        url = category.urlToFetch;
+      }
+    });
+    if (nextPage) {
+      url = url + "?" + nextPage;
+    }
+    console.log(url);
     return fetch(url)
       .then((response) => {
         if (response.ok) {
@@ -73,7 +84,6 @@ export const Reddit = {
         }
       })
       .then((jsonResponse) => {
-        console.log(jsonResponse);
         const list = this.setListProperties(jsonResponse);
         return list;
       })

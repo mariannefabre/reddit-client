@@ -2,44 +2,32 @@ import React, { useState } from "react";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import {Reddit} from "../../util/Reddit";
-import './Menu.css';
+import { categories } from "../../util/Reddit";
+import "./Menu.css";
 
-const Menu = (props) => {
+const Menu = () => {
   const [sideBar, setSideBar] = useState(false);
 
   const showSideBar = () => setSideBar(!sideBar);
-
+  console.log("menu rendered");
   return (
     <>
       <div className="menu">
-        <Link to="#" className="menu-bars">
-          <FaBars onClick={showSideBar}/>
-        </Link>
+        <FaBars className="menu-bars" onClick={showSideBar} />
       </div>
       <nav className={sideBar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items">
-          <li className="navbar-toggle"> 
-            <Link to="#" className="menu-bars">
-              <AiOutlineClose onClick={showSideBar}/>
-            </Link>
+        <ul className="nav-menu-items" onClick={showSideBar}>
+          <li className="navbar-toggle">
+            <AiOutlineClose className="menu-bars" />
           </li>
-          {Reddit.Categories.map((category) => (
-          <li
-          className="nav-text"
-/*             className={getLinkClasses(category.id)}
-            onClick={() => handleClick(category.id)} */
-/*              */
-            key={category.id}
-          >
-            <Link to={category.path}>
-            {category.icon}
-            <span>{category.name}</span>
-            </Link>
-
-          </li>
-        ))}
-
+          {categories.map((category) => (
+            <li className="nav-text" key={category.id}>
+              <Link to={category.path}>
+                {category.icon}
+                <span>{category.name}</span>
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
     </>

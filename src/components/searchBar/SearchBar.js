@@ -11,8 +11,8 @@ export const SearchBar = () => {
   const [results, setResults] = useState([]);
 
   async function fetchData() {
-    const urlToFetch = "https://www.reddit.com/r/all.json";
-    const fetchedData = await Reddit.getPostsList(urlToFetch);
+    const path = "/all";
+    const fetchedData = await Reddit.getPostsList(path);
     setData(fetchedData);
   }
 

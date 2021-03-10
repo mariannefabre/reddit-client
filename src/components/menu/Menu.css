@@ -1,11 +1,10 @@
-.menu{
+.menu {
   width: 100%;
-  
 }
 
-.menu-bars{
+.menu-bars {
   color: white;
-  margin-right: 1.5rem; 
+  margin-right: 1.5rem;
   float: right;
   font-size: 1.7rem;
   background: none;
@@ -14,11 +13,11 @@
 .nav-menu {
   background-color: rgb(13, 11, 43);
   width: 250px;
-   height: 100vh; 
-   display: flex;
-  justify-content: center; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
   position: fixed;
-  top:0;
+  top: 0;
   right: -100%;
   transition: 850ms;
 }
@@ -27,39 +26,43 @@
   transition: 350ms;
 }
 
-.navbar-toggle{
-width: 100%;
-height: 80px;
-/* display: flex;
+.navbar-toggle {
+  width: 100%;
+  height: 80px;
+  /* display: flex;
 justify-content: start;
 align-items: center; */
 }
 
-.nav-menu-items{
+.nav-menu-items {
   list-style-type: none;
   padding-left: unset;
-  padding: 8px 0px;
   width: 100%;
 }
 .nav-text {
   height: 60px;
   margin: 0 auto;
-  width: 60%;
+  width: 95%;
 }
-.nav-text a{
+.nav-text a {
   color: white;
-text-decoration: none;
-font-size: 1rem;
-width: 95%;
-height: 100%;
-display: flex;
-align-items: center;
-padding: 0 16px 0 8px;
-border-radius: 4px;;
+  text-decoration: none;
+  font-size: 1rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px 0 50px;
+  
 }
 
 .nav-text a:hover {
+  border-radius: 4px;
   background-color: orange;
+}
+
+.nav-text a:active, .nav-text a:focus {
+  background-color: unset;
+  color: orange;
 }
 
 span {

@@ -1,6 +1,5 @@
 import styles from "./SideNav.module.css";
 import { Reddit } from "../../util/Reddit";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export const SideNav = (props) => {
   const handleClick = (id) => {

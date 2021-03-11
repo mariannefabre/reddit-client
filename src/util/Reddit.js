@@ -76,6 +76,22 @@ export const Reddit = {
     if (nextPage) {
       url = url + "?" + nextPage;
     }
+    return fetch(url)
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        }
+      })
+      .then((jsonResponse) => {
+        const list = this.setListProperties(jsonResponse);
+        return list;
+      })
+      .catch((error) => console.log(error));
+  },
+
+  search(term) {
+    const asString = encodeURIComponent(term);
+    const url = "https://www.reddit.com/search.json?q=" + asString;
     console.log(url);
     return fetch(url)
       .then((response) => {
@@ -85,6 +101,7 @@ export const Reddit = {
       })
       .then((jsonResponse) => {
         const list = this.setListProperties(jsonResponse);
+        console.log(list);
         return list;
       })
       .catch((error) => console.log(error));

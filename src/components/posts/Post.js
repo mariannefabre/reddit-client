@@ -1,6 +1,5 @@
 import styles from "./Post.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
+import { BiCommentDetail } from "react-icons/bi";
 
 export const Post = (props) => {
   const handleClick = () => {
@@ -39,7 +38,7 @@ export const Post = (props) => {
 
       <div className={styles.inline}>
         <p className={styles.upvotes}>{props.post.ups} ups</p>
-        <FontAwesomeIcon style={{ margin: "auto" }} icon={faCommentAlt} />
+        <BiCommentDetail className={styles.icon}/>
         <p className={styles.bold}>{props.post.nbComments} comments</p>
         <p>{getTimeDiff()}</p>
       </div>

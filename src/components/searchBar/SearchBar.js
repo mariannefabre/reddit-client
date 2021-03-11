@@ -1,56 +1,47 @@
 import styles from "./SearchBar.module.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { BiSearchAlt } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import { Suggestions } from "./Suggestions";
 import { Reddit } from "../../util/Reddit";
 
 export const SearchBar = () => {
   const [query, setQuery] = useState("");
-  const [data, setData] = useState();
   const [results, setResults] = useState([]);
-
-  async function fetchData() {
-    const path = "/all";
-    const fetchedData = await Reddit.getPostsList(path);
-    setData(fetchedData);
-  }
+  const [isInputActive, setIsInputActive] = useState(false);
 
   useEffect(() => {
-    fetchData();
-  }, []);
-
-  useEffect(() => {
-    if (query !== "" && data) {
-      const currentResults = data.filter((post) => {
-        if (post.title.includes(query)) {
-          return post;
-        } else {
-          // eslint-disable-next-line array-callback-return
-          return;
-        }
-      });
-      setResults(currentResults);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    const fetchResults = async () => {
+      if (query && query.length > 1) {
+        const currentResults = await Reddit.search(query);
+        setResults(currentResults.posts);
+      }
+    };
+    fetchResults();
   }, [query]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
-    /*     if (query && query.length > 1 && query.length % 2 === 0) {
-    } */
   };
 
+  const handleFocus = () => {
+    setIsInputActive(true);
+  };
+
+  const handleBlur = () => {
+    setIsInputActive(false);
+  };
   return (
     <div className={styles.searchBar}>
-      <FontAwesomeIcon className={styles.icon} icon={faSearch} />
+      <BiSearchAlt className={styles.icon} />
       <input
         className={styles.searchInput}
         placeholder="Search..."
         value={query}
         onChange={handleChange}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
       ></input>
-      <Suggestions results={results} />
+      <Suggestions results={results} isInputActive={isInputActive} />
     </div>
   );
 };

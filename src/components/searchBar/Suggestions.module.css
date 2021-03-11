@@ -6,11 +6,24 @@
   padding: 10px 2px;
   width: 45vw;
   border: 1px solid rgb(229, 229, 229);
+  height: 35vh;
+  overflow: hidden;
+  overflow-y:scroll;
 }
 
 .suggestion{
   cursor: pointer;
-  padding: 8px 0;
-  text-indent: 20px;
-  color:  rgb(140, 140, 140);
+  padding: 8px 18px;
+  color:  black;
+  font-weight: 500;
+  font-size: 0.9rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.suggestion:hover {
+  background-color: rgba(245, 245, 245, 0.74);;
 }

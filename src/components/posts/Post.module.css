@@ -16,17 +16,13 @@
   padding: 0 20px;
   margin: 5px auto;
   background-color:rgb(255, 255, 255);
-  transition: all 0.2s ease-out;
   cursor: pointer;
   box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
   border-radius: 4px;
+  transition: all 0.5s ease-out;
 }
 .post:hover{
-  position: relative;
-  left: 3px;
-  bottom: 3px;
-  box-shadow: -4px 4px 2px 1px rgb(229, 229, 229);
-
+  box-shadow: inset 4px 0em rgb(13, 11, 43);
 }
 
 .img, .video{

@@ -9,7 +9,6 @@ const Menu = () => {
   const [sideBar, setSideBar] = useState(false);
 
   const showSideBar = () => setSideBar(!sideBar);
-  console.log("menu rendered");
   return (
     <>
       <div className="menu">

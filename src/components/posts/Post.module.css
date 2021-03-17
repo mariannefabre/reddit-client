@@ -3,7 +3,7 @@
 }
 
 .postsList{
-  margin: 0;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -11,22 +11,32 @@
 }
 
 .post{
+  box-sizing: border-box;
   border: 1px solid rgb(229, 229, 229);
-  width: 90%;
-  padding: 0 20px;
-  margin: 5px auto;
+  width: 100%;
+  padding: 0 7px;
+  margin: 5px 0;
   background-color:rgb(255, 255, 255);
-  cursor: pointer;
   box-shadow: 1px 1px 3px 1px rgb(229, 229, 229);
   border-radius: 4px;
   transition: all 0.5s ease-out;
 }
-.post:hover{
-  box-shadow: inset 4px 0em rgb(13, 11, 43);
+
+@media only screen and (min-width: 600px){
+  .post{
+    padding: 0 20px;
+    margin: 5px auto;
+  }
+  .post:hover{
+    box-shadow: inset 4px 0em rgb(13, 11, 43);
+  }
 }
+
+
 
 .img, .video{
   display: block;
+  width: inherit;
   max-width: 450px;
 }
 
@@ -34,6 +44,18 @@
   font-size: 1.1rem;
   font-weight: 500;
   margin-top: 5px;
+}
+.text{
+  word-wrap: break-word;
+  font-size: 0.9rem;
+  padding: 0 10px;
+  line-height: 20px;
+}
+.link{
+  text-decoration-line: unset;
+  color: rgb(26, 116, 201);
+  font-size: 0.85rem;
+  letter-spacing: -0.4px;
 }
 
 .inline {
@@ -80,4 +102,27 @@
 .icon{
   font-size: 1.1rem;
   margin: auto 3px;
+}
+
+/* .button {
+  height: 30px;
+  padding: 0 10px;
+  margin: auto 0;
+  background-color: white;
+  border-radius: 15px;
+  border: 1.2px solid #ff4400ad;
+  color: #FF4500;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ff4400ad;
+  border: 1.2px solid #ff4400ad;
+  color: white;
+} */
+
+.button{
+  color: #FF4500;
+  margin: auto 0;
+  font-size: 1.3rem;
 }

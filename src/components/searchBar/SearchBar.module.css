@@ -1,10 +1,24 @@
 .searchBar {
-  margin-left: 20vw;
+  display: none;
 }
+
+@media only screen and (min-width: 600px) {
+  .searchBar {
+    display: block;
+    margin-left: 10vw;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .searchBar {
+    margin-left: 20vw;
+  }
+}
+
 .searchInput {
   border-radius: 0px;
   border: 1.5px solid rgb(229, 229, 229);
   width: 45vw;
+  max-width: 800px;
   height: 35px;
   text-indent: 38px;
   margin: auto 0;

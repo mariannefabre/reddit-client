@@ -1,5 +1,6 @@
 import styles from "./Post.module.css";
 import { BiCommentDetail } from "react-icons/bi";
+import {BsBoxArrowUpRight} from 'react-icons/bs';
 
 export const Post = (props) => {
   const handleClick = () => {
@@ -19,28 +20,45 @@ export const Post = (props) => {
       )} seconds ago`;
     }
   };
+  const isImage = (url) => {
+    return /redd/.test(url);
+  };
+  const shortenUrl = () => {
+    return props.post.url.replace(/^(https):\/\/www./, '');
+  }
 
   return (
-    <div className={styles.post} onClick={handleClick}>
+    <div className={styles.post}>
       <div className={styles.inline}>
         <p className={styles.bold}>{props.post.subreddit}</p>
         <p>Posted by: {props.post.author}</p>
       </div>
       <p className={styles.title}>{props.post.title}</p>
-      {props.post.isVideo ? (
+      {props.post.text && <p className={styles.text}>{props.post.text}</p>}
+      {props.post.isVideo && (
         <video controls className={styles.video}>
           <source src={props.post.fallbackUrl} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-      ) : (
-        <img src={props.post.url} className={styles.img} alt="description" />
+      )}
+
+      {isImage(props.post.url) ? (
+        <img src={props.post.url} className={styles.img} alt="" />
+      ) : (<div>
+        {isImage(props.post.thumbnail) && <img src={props.post.thumbnail} alt=""/>}
+        <p><a className={styles.link} href={props.post.url}>{shortenUrl()}</a></p>
+        </div>
       )}
 
       <div className={styles.inline}>
         <p className={styles.upvotes}>{props.post.ups} ups</p>
-        <BiCommentDetail className={styles.icon}/>
+        <BiCommentDetail className={styles.icon} />
         <p className={styles.bold}>{props.post.nbComments} comments</p>
         <p>{getTimeDiff()}</p>
+{/*         <button className={styles.button} onClick={handleClick}>
+          Open Link
+        </button> */}
+        <BsBoxArrowUpRight className={styles.button} onClick={handleClick}/>
       </div>
     </div>
   );

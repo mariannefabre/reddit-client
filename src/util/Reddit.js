@@ -49,6 +49,8 @@ export const Reddit = {
       url: post.data.url,
       author: post.data.author,
       title: post.data.title,
+      text: post.data.selftext,
+      thumbnail: post.data.thumbnail,
       utcCreationDate: post.data.created_utc,
       subreddit: post.data.subreddit_name_prefixed,
       ups: post.data.ups,
@@ -92,7 +94,6 @@ export const Reddit = {
   search(term) {
     const asString = encodeURIComponent(term);
     const url = "https://www.reddit.com/search.json?q=" + asString;
-    console.log(url);
     return fetch(url)
       .then((response) => {
         if (response.ok) {

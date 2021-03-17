@@ -55,9 +55,7 @@ export const Post = (props) => {
         <BiCommentDetail className={styles.icon} />
         <p className={styles.bold}>{props.post.nbComments} comments</p>
         <p>{getTimeDiff()}</p>
-{/*         <button className={styles.button} onClick={handleClick}>
-          Open Link
-        </button> */}
+
         <BsBoxArrowUpRight className={styles.button} onClick={handleClick}/>
       </div>
     </div>
